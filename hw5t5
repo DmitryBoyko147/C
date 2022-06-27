@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+
+void reverse(char *str){
+    char *p=str;
+    int length=0;
+    while((*p)!='\0'){
+        length++;
+        p++;
+    }
+    int i;
+    char t;
+    for(i=0;i<length/2;i++){
+        t=str[i];
+        str[i]=str[length-i-1];
+        str[length-i-1]=t;
+    }
+    return;
+
+}
+
+int main(){
+    char str[256];
+    int i=0;
+    char symbol;
+    while ((symbol = getchar()) != '0'){
+    if((symbol!='\n')&&(i<255)){
+        str[i]=symbol;
+        i++;
+    }
+    else{
+        str[i]='\0';
+        reverse(str);
+        printf("%s\n",str);
+        i=0;
+    }
+    }
+
+    return 0;
+}
