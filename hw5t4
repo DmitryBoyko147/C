@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+    char *mas = malloc(sizeof(char)*256*20);
+    int m[20];
+    int symbol;
+    int count=0;
+    int i=0;
+    while (((symbol = getchar()) != '0')&&(i<20)){
+        if((symbol!='\n')&&(count<256)){
+        mas[i*256+count]=symbol;
+        count++;
+        }
+        else{
+            m[i]=count;
+            count=0;
+            i++;
+        }
+    }
+    int j;
+    int k;
+    for(j=0;j<i;j++){
+        if(m[j]>80){
+            for(k=0; k<m[j];k++) printf("%c",mas[256*j+k]);
+        printf("\n");
+        }
+    }
+    return 0;
+}
